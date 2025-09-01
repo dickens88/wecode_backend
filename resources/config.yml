@@ -1,0 +1,31 @@
+# WeCodeSecTools 配置文件
+flask:
+  secret_key: ${SECRET_KEY:-dev-secret-key-change-in-production}
+  host: 0.0.0.0
+  port: 5000
+  debug: true  # 开发环境设置为true
+
+database:
+  mysql:
+    host: ${MYSQL_HOST:-localhost}
+    port: ${MYSQL_PORT:-3306}
+    user: ${MYSQL_USER:-root}
+    password: ${MYSQL_PASSWORD:-kali@soc123}  # 设置您的MySQL密码
+    database: ${MYSQL_DATABASE:-wecode_sec_tools}
+  
+  sqlalchemy:
+    track_modifications: false
+
+third_party_api:
+  base_url: ${THIRD_PARTY_API_BASE_URL:-https://api.example.com}
+  api_key: ${THIRD_PARTY_API_KEY:-your-api-key-here}
+
+scheduler:
+  interval: 10  # 秒
+
+logging:
+  level: ${LOG_LEVEL:-DEBUG}  # 开发环境设置为DEBUG
+  dir: ${LOG_DIR:-logs}
+  file: ${LOG_FILE:-wecode_sec_tools.log}
+  max_bytes: ${LOG_MAX_BYTES:-10485760}  # 10MB
+  backup_count: ${LOG_BACKUP_COUNT:-5}
